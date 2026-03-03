@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Sidebar from './Components/LeftPanel/Sidebar'
+import Sidebar from './Components/LeftPanel/SideBar'
 import Editor from './Components/Editor/Editor'
 import TopBar from './Components/TopBar/TopBar'
 
