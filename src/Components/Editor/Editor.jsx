@@ -8,7 +8,7 @@ const Editor = ({SelectedID, Notes, setNotes}) => {
 
   return (
     <div className='flex flex-col flex-1 bg-gradient-to-br from-[#1e1e1e] to-[#191919] p-20'>
-      <Title SelectedID={SelectedID} Notes={Notes}/>
+      <Title SelectedID={SelectedID} Notes={Notes} setNotes={setNotes}/>
       <Content SelectedID={SelectedID} Notes={Notes} setNotes={setNotes} />
     </div>
   )

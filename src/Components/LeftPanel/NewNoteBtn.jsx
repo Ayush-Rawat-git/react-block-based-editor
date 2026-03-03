@@ -6,7 +6,7 @@ const NewNoteBtn = ({ setNotes, setSelectedID }) => {
     const blockId  = crypto.randomUUID()
     const newnote = {
       id: crypto.randomUUID(),
-      title: "Undefined",
+      title: "",
       content: [
         { id: blockId, text: ""}
       ],

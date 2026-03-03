@@ -54,6 +54,30 @@ const Block = ({ selectedNote, setNotes, SelectedID, focusedBlockedId, setfocuse
         }
     }
 
+    function handleChange(e){
+        const newvalue = e.target.value
+        setNotes(prev => 
+            prev.map(note => 
+                note.id === SelectedID
+                ? 
+                {
+                    ...note,
+                    content: note.content.map(b => 
+                        b.id  === block.id
+                        ?
+                        {
+                            ...b,
+                            text : newvalue
+                        }
+                        : b
+                    )
+                }
+                : note
+            )
+        )
+        
+    }
+
 
     return (
         <div
@@ -62,9 +86,11 @@ const Block = ({ selectedNote, setNotes, SelectedID, focusedBlockedId, setfocuse
         >
             <input
                 className="w-full bg-transparent outline-none text-gray-100"
-                placeholder=""
+                placeholder="press ' / ' for more commands"
                 ref={inputref}
                 onKeyDown={(e) => handleEnter(e)}
+                value={block.text || ""}
+                onChange={handleChange}
             />
 
         </div>

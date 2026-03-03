@@ -1,6 +1,7 @@
 import React from 'react'
+import Delbtn from './Delbtn'
 
-const NewNote = ({ Notes, OpenId, setOpenId, setSelectedID }) => {
+const NewNote = ({ Notes, OpenId, setOpenId, setSelectedID, setNotes }) => {
 
   return (
     <>
@@ -18,9 +19,12 @@ const NewNote = ({ Notes, OpenId, setOpenId, setSelectedID }) => {
           >...</button>
           {OpenId === note.id &&
             <div className='absolute right-0 mt-2 w-40 top-5 bg-white border border-gray-200 rounded-lg shadow-lg z-50'>
-              <p>Delete</p>
-              <p>Rename</p>
-              <p>hello</p>
+              <Delbtn
+                id={note.id}
+                Notes={Notes}
+                setNotes={setNotes}
+
+              />
 
             </div>
           }

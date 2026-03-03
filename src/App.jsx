@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Sidebar from './Components/LeftPanel/Sidebar'
 import Editor from './Components/Editor/Editor'
+import TopBar from './Components/TopBar/TopBar'
 
 const App = () => {
 
@@ -13,6 +14,7 @@ const App = () => {
       return []
     }
   })
+  const [isSideBarOpen, setIsSideBarOpen] = useState(true)
 
   useEffect(() => {
     let stringNotes = JSON.stringify(Notes)
@@ -21,10 +23,14 @@ const App = () => {
   }, [Notes])
   
   return (
-    <div className='flex h-screen 
-'>
-      <Sidebar Notes={Notes} setNotes={setNotes} setSelectedID={setSelectedID} />
+    <div className='flex h-screen '>
+            {isSideBarOpen && <Sidebar Notes={Notes} setNotes={setNotes} setSelectedID={setSelectedID} />}
+
+      <div className='flex flex-col flex-1'>
+              <TopBar setIsSideBarOpen={setIsSideBarOpen} Notes={Notes} isSideBarOpen={isSideBarOpen} setSelectedID={setSelectedID}/>
+
       <Editor SelectedID={SelectedID} Notes={Notes} setNotes={setNotes}/>
+      </div>
     </div>
   )
 }
