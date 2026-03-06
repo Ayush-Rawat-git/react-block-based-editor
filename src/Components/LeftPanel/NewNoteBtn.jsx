@@ -1,3 +1,4 @@
+import { Columns3Cog } from 'lucide-react'
 import React from 'react'
 
 const NewNoteBtn = ({ setNotes, setSelectedID }) => {
@@ -7,6 +8,7 @@ const NewNoteBtn = ({ setNotes, setSelectedID }) => {
     const newnote = {
       id: crypto.randomUUID(),
       title: "",
+      bgcolor : "bg-transparent",
       content: [
         { id: blockId, text: ""}
       ],
@@ -22,7 +24,7 @@ const NewNoteBtn = ({ setNotes, setSelectedID }) => {
   return (
     <>
 
-      <button onClick={handleClick}>
+      <button className='text-zinc-500 transition-colors duration-150 hover:text-white' onClick={handleClick}>
         +
       </button>
 

@@ -23,7 +23,7 @@ const App = () => {
   }, [Notes])
   
   return (
-    <div className='flex h-screen '>
+    <div className='flex h-screen bg-zinc-950 text-zinc-200 '>
             {isSideBarOpen && <Sidebar Notes={Notes} setNotes={setNotes} setSelectedID={setSelectedID} />}
 
       <div className='flex flex-col flex-1'>

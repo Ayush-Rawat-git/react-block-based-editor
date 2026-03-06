@@ -7,12 +7,12 @@ const TopBar = ({ setIsSideBarOpen, Notes, isSideBarOpen, setSelectedID }) => {
     }
     return (
         <div
-            className={`bg-gray-500 h-10 flex min-w-0 ${isSideBarOpen ? "pl-0" : "pl-13"
+            className={`bg-zinc-900 h-12 border-b border-zinc-800 flex items-center min-w-0 transition-all duration-200 ${isSideBarOpen ? "pl-0" : "pl-13"
                 }`}
         >
             <button
                 onClick={handleclick}
-                className='absolute top-2 left-3 z-50 border-2 border-amber-200 bg-amber-200'
+                className='p-2 text-zinc-400 rounded-md transition-colors duration-150 hover:bg-zinc-800 hover:text-white'
             >
                 IIIIII
             </button>

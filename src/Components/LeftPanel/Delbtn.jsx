@@ -7,7 +7,7 @@ const Delbtn = ({id, Notes, setNotes}) => {
         )
     }
   return (
-    <div>
+    <div className='text-black hover:bg-gray-300 rounded'>
       <button
         onClick={handleclick}
       >

@@ -1,12 +1,15 @@
 import React from 'react'
 import NewNoteBtn from './NewNoteBtn'
 
-const WorkSpace = ({setNotes, setSelectedID}) => {
+const WorkSpace = ({ setNotes, setSelectedID }) => {
   return (
-    <div className="bg-[#242429] border-b border-[#2f2f35] flex justify-between items-center h-10 px-2 text-[#d4d4d8]"
->
-      <p>WorkSpace</p>
-      <NewNoteBtn setNotes={setNotes} setSelectedID={setSelectedID}/>
+    <div className="flex items-center justify-between px-4 py-3 border-b border-zinc-800"
+    >
+      <h2 className="text-sm font-semibold tracking-wide text-zinc-400 uppercase">
+        Workspace
+      </h2>
+      <NewNoteBtn setNotes={setNotes} setSelectedID={setSelectedID} />
+
     </div>
   )
 }
