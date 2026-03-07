@@ -5,7 +5,7 @@ import RenameBtn from './RenameBtn'
 import ChangeColor from './ChangeColor'
 
 
-const NewNote = ({ Notes, OpenId, setOpenId, setSelectedID, setNotes }) => {
+const NewNote = ({ Notes, OpenId, setOpenId, setSelectedID, setNotes, setOpenTabsId }) => {
 
   const menuref = useRef(null)
   const [renameId, setRenameId] = useState(null)
@@ -34,13 +34,20 @@ const NewNote = ({ Notes, OpenId, setOpenId, setSelectedID, setNotes }) => {
     )
   }
 
+  function openNoteTab(id){
+    setOpenTabsId(prev => [...prev, id])
+  }
+
   return (
     <>
       {Notes.map((note, index) => (
         <div
           key={index}
           className={`h-8 px-4 text-sm font-medium text-zinc-300 rounded-md cursor-pointer transition-colors duration-150  hover:text-white flex justify-between items-center ${note.bgcolor || "bg-zinc-900"}`}
-          onClick={() => setSelectedID(note.id)}
+          onClick={() =>{ 
+            setSelectedID(note.id)
+            openNoteTab(note.id)
+          }}
         >
           <div className='h-full flex items-center '>
 
@@ -80,7 +87,7 @@ const NewNote = ({ Notes, OpenId, setOpenId, setSelectedID, setNotes }) => {
                   id={note.id}
                   Notes={Notes}
                   setNotes={setNotes}
-
+                  setOpenTabsId={setOpenTabsId}
                 />
                 <RenameBtn
                   setRenameId={setRenameId}

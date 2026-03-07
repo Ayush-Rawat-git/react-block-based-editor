@@ -1,7 +1,7 @@
 import { Columns3Cog } from 'lucide-react'
 import React from 'react'
 
-const NewNoteBtn = ({ setNotes, setSelectedID }) => {
+const NewNoteBtn = ({ setNotes, setSelectedID, setOpenTabsId }) => {
 
   function handleClick() {
     const blockId  = crypto.randomUUID()
@@ -17,6 +17,7 @@ const NewNoteBtn = ({ setNotes, setSelectedID }) => {
 
     setNotes(prev => [newnote, ...prev])
     setSelectedID(newnote.id)
+    setOpenTabsId(prev => [...prev, newnote.id])
 
 
 

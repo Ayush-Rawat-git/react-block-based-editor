@@ -1,7 +1,7 @@
 import React from 'react'
 import FileTab from './FileTab'
 
-const TopBar = ({ setIsSideBarOpen, Notes, isSideBarOpen, setSelectedID }) => {
+const TopBar = ({ setIsSideBarOpen, Notes, isSideBarOpen, setSelectedID, setOpenTabsId, openTabsId }) => {
     function handleclick() {
         setIsSideBarOpen(prev => !prev)
     }
@@ -17,17 +17,22 @@ const TopBar = ({ setIsSideBarOpen, Notes, isSideBarOpen, setSelectedID }) => {
                 IIIIII
             </button>
 
-            {Notes.map((note, index) =>
-                <FileTab
-                    key={index}
-                    note={note}
-                    setSelectedID={setSelectedID}
-                />
+            {openTabsId.map((id, index) => {
+                const note = Notes.find(n => n.id === id)
+                  if (!note) return null
 
-    )}
+                return (
+                    <FileTab
+                        key={index}
+                        note={note}
+                        setSelectedID={setSelectedID}
+                        setOpenTabsId={setOpenTabsId}
+                    />
+                )
+            })}
 
-                </div>
-            )
-            }
+        </div>
+    )
+}
 
-            export default TopBar
+export default TopBar

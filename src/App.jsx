@@ -21,13 +21,29 @@ const App = () => {
     localStorage.setItem("notes",stringNotes)
   
   }, [Notes])
+
+  const [openTabsId, setOpenTabsId] = useState(() => {
+    const stored = localStorage.getItem("tabsId")
+    if(stored){
+      return JSON.parse(stored)
+    }else {
+      return []
+    }
+  })
+
+  useEffect(() => {
+    let stringTabs = JSON.stringify(openTabsId)
+    localStorage.setItem("tabsId", stringTabs)
+  }, [openTabsId])
+  
   
   return (
     <div className='flex h-screen bg-zinc-950 text-zinc-200 '>
-            {isSideBarOpen && <Sidebar Notes={Notes} setNotes={setNotes} setSelectedID={setSelectedID} />}
+            {isSideBarOpen && <Sidebar Notes={Notes} setNotes={setNotes} setSelectedID={setSelectedID} setOpenTabsId={setOpenTabsId}/>}
 
       <div className='flex flex-col flex-1'>
-              <TopBar setIsSideBarOpen={setIsSideBarOpen} Notes={Notes} isSideBarOpen={isSideBarOpen} setSelectedID={setSelectedID}/>
+
+      <TopBar setIsSideBarOpen={setIsSideBarOpen} Notes={Notes} isSideBarOpen={isSideBarOpen} setSelectedID={setSelectedID} setOpenTabsId={setOpenTabsId} openTabsId={openTabsId}/>
 
       <Editor SelectedID={SelectedID} Notes={Notes} setNotes={setNotes}/>
       </div>
